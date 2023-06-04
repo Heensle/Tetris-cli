@@ -15,6 +15,9 @@ class FallingBlocks{
     string type; // "Q" (square), "LL" (blue one), "LR" (orange one), "I", "S", "Z", "T"
     string color;
 
+    int i_rotatex;
+    int i_rotatey;//only used for the I tetromino: because of the way I've rendered the rotation, I need an arbitrary rotation point for the I tetromino specifically :/ (it is the in the position of the third block in the starting position)
+
     int block1x;
     int block1y;
 /* Point of rotation
@@ -176,6 +179,9 @@ FallingBlocks::FallingBlocks(string type){
 
     block4x = 7;
     block4y = 20;
+
+    i_rotatex = 6;
+    i_rotatey = 20;
   } else if (type == "S"){
     color = "\u001b[38;5;82m";
     
