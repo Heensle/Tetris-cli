@@ -393,6 +393,48 @@ void FallingBlocks::rotate(){
       block4x = block1x - 1;
       block4y = block1y;
     }
+  } else if (type == "Z"){
+    if (block2x == block1x - 1 && block2y == block1y + 1){
+      block2x = block1x + 1;
+      block2y = block1y + 1;
+    } else if (block2x == block1x + 1 && block2y == block1y + 1){
+      block2x = block1x + 1;
+      block2y = block1y - 1;
+    } else if (block2x == block1x + 1 && block2y == block1y - 1){
+      block2x = block1x - 1;
+      block2y = block1y - 1;
+    } else if (block2x == block1x - 1 && block2y == block1y - 1){
+      block2x = block1x - 1;
+      block2y = block1y + 1;
+    }
+
+    if (block3x == block1x && block3y == block1y + 1){
+      block3x = block1x + 1;
+      block3y = block1y;
+    } else if (block3x == block1x + 1 && block3y == block1y){
+      block3x = block1x;
+      block3y = block1y - 1;
+    } else if (block3x == block1x && block3y == block1y - 1){
+      block3x = block1x - 1;
+      block3y = block1y;
+    } else if (block3x == block1x - 1 && block3y == block1y){
+      block3x = block1x;
+      block3y = block1y + 1;
+    }
+
+    if (block4x == block1x + 1 && block4y == block1y){
+      block4x = block1x;
+      block4y = block1y - 1;
+    } else if (block4x == block1x && block4y == block1y - 1){
+      block4x = block1x - 1;
+      block4y = block1y;
+    } else if (block4x == block1x - 1 && block4y == block1y){
+      block4x = block1x;
+      block4y = block1y + 1;
+    } else if (block4x == block1x && block4y == block1y + 1){
+      block4x = block1x + 1;
+      block4y = block1y;
+    }
   }
 
 
