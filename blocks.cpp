@@ -351,6 +351,8 @@ void FallingBlocks::rotate(){
       block4x = block1x + 1;
       block4y = block1y;
     }
+  } else if (type == "S"){
+    
   }
 
 
