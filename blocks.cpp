@@ -441,6 +441,62 @@ void FallingBlocks::rotate(){
       block4x = block1x + 1;
       block4y = block1y;
     }
+  } else if (type == "I"){
+    if (block1x == i_rotatex - 2 && block1y == i_rotatey){
+      block1x = i_rotatex;
+      block1y = i_rotatey + 1;
+    } else if (block1x == i_rotatex && block1y == i_rotatey + 1){
+      block1x = i_rotatex + 1;
+      block1y = i_rotatey - 1;
+    } else if (block1x == i_rotatex + 1 && block1y == i_rotatey - 1){
+      block1x = i_rotatex - 2;
+      block1y = i_rotatey - 2;
+    } else if (block1x == i_rotatex - 2 && block1y == i_rotatey - 2){
+      block1x = i_rotatex - 2;
+      block1y = i_rotatey;
+    }
+
+    if (block2x == i_rotatex - 1 && block2y == i_rotatey){
+      block2x = i_rotatex;
+      block2y = i_rotatey + 1;
+    } else if (block2x == i_rotatex && block2y == i_rotatey + 1){
+      block2x = i_rotatex;
+      block2y = i_rotatey - 1;
+    } else if (block2x == i_rotatex && block2y == i_rotatey - 1){
+      block2x = i_rotatex - 2;
+      block2y = i_rotatey - 1;
+    } else if (block2x == i_rotatex - 2 && block2y == i_rotatey - 1){
+      block2x = i_rotatex - 1;
+      block2y = i_rotatey;
+    }
+
+    if (block3x == i_rotatex && block3y == i_rotatey){
+      block3x = i_rotatex;
+      block3y = i_rotatey - 1;
+    } else if (block3x == i_rotatex && block3y == i_rotatey - 1){
+      block3x = i_rotatex - 2;
+      block3y = i_rotatey - 1;
+    } else if (block3x == i_rotatex - 2 && block3y == i_rotatey - 1){
+      block3x = i_rotatex - 2;
+      block3y = i_rotatey;
+    } else if (block3x == i_rotatex - 2 && block3y == i_rotatey){
+      block3x = i_rotatex;
+      block3y = i_rotatey;
+    }
+
+    if (block4x == i_rotatex + 1 && block4y == i_rotatey){
+      block4x = i_rotatex;
+      block4y = i_rotatey - 2;
+    } else if (block4x == i_rotatex && block4y == i_rotatey - 2){
+      block4x = i_rotatex - 2;
+      block4y = i_rotatey - 1;
+    } else if (block4x == i_rotatex - 2 && block4y == i_rotatey - 1){
+      block4x = i_rotatex - 2;
+      block4y = i_rotatey + 1;
+    } else if (block4x == i_rotatex - 2 && block4y == i_rotatey + 1){
+      block4x = i_rotatex + 1;
+      block4y = i_rotatey;
+    }
   }
 
 
