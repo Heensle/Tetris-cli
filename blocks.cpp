@@ -233,8 +233,6 @@ FallingBlocks::FallingBlocks(string type) {
 
 void FallingBlocks::rotate() {
 
-  if (type == "T") {
-
     if (type == "T") {
 
     if (block2x == block1x - 1 && block2y == block1y){
