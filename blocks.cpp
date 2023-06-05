@@ -515,4 +515,18 @@ void FallingBlocks::drop(){
     i_rotatey--;
   }
 }
+
+class DroppedBlocks {
+
+public:
+  DroppedBlocks(string color);
+
+private:  
+  string color;
+};
+
+DroppedBlocks::DroppedBlocks (string color){
+  this->color = color;
+}
+
 } // namespace Blocks
