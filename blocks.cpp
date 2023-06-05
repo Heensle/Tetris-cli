@@ -10,6 +10,8 @@ public:
 
   void rotate();
 
+private:
+
   string type; // "Q" (square), "LL" (blue one), "LR" (orange one), "I", "S",
                // "Z", "T"
   string color;
@@ -369,7 +371,7 @@ void FallingBlocks::rotate() {
     } else if (block2x == block1x - 1 && block2y == block1y - 1) {
       block2x = block1x - 1;
       block2y = block1y + 1;
-    } else if (block2x == block1x - 1 && block2y == block1y - 1) {
+    } else if (block2x == block1x - 1 && block2y == block1y + 1) {
       block2x = block1x + 1;
       block2y = block1y + 1;
     }
