@@ -9,6 +9,7 @@ public:
   FallingBlocks(string type);
 
   void rotate();
+  void drop();
 
 private:
 
@@ -501,6 +502,17 @@ void FallingBlocks::rotate() {
       block4x = i_rotatex + 1;
       block4y = i_rotatey;
     }
+  }
+}
+
+void FallingBlocks::drop(){
+  block1y--;
+  block2y--;
+  block3y--;
+  block4y--;
+
+  if (type == "I"){
+    i_rotatey--;
   }
 }
 } // namespace Blocks
