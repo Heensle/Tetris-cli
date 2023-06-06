@@ -17,6 +17,7 @@ int main() {
   DroppedBlocks screen[20][10];
   
   int points = 0;
+  double speed;
 
   set_screen();
 
