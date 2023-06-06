@@ -26,4 +26,12 @@ namespace Blocks{
       int i_rotatex;
       int i_rotatey;
   };  
+
+  class DroppedBlocks{
+    public:
+      DroppedBlocks();
+      DroppedBlocks(string color);
+    private:
+      string color;
+  };
 }
