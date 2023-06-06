@@ -519,11 +519,16 @@ void FallingBlocks::drop(){
 class DroppedBlocks {
 
 public:
+  DroppedBlocks();
   DroppedBlocks(string color);
 
 private:  
   string color;
 };
+
+DroppedBlocks::DroppedBlocks (){
+  
+}
 
 DroppedBlocks::DroppedBlocks (string color){
   this->color = color;
