@@ -12,7 +12,6 @@ public:
   void drop();
 
 private:
-
   string type; // "Q" (square), "LL" (blue one), "LR" (orange one), "I", "S",
                // "Z", "T"
   string color;
@@ -234,46 +233,46 @@ FallingBlocks::FallingBlocks(string type) {
 
 void FallingBlocks::rotate() {
 
-    if (type == "T") {
+  if (type == "T") {
 
-    if (block2x == block1x - 1 && block2y == block1y){
+    if (block2x == block1x - 1 && block2y == block1y) {
       block2x = block1x;
       block2y = block1y + 1;
-    } else if (block2x == block1x && block2y == block1y + 1){
+    } else if (block2x == block1x && block2y == block1y + 1) {
       block2x = block1x + 1;
       block2y = block1y;
-    } else if (block2x == block1x + 1 && block2y == block1y){
+    } else if (block2x == block1x + 1 && block2y == block1y) {
       block2x = block1x;
       block2y = block1y - 1;
-    } else if (block2x == block1x && block2y == block1y - 1){
+    } else if (block2x == block1x && block2y == block1y - 1) {
       block2x = block1x - 1;
       block2y = block1y;
     }
 
-    if (block3x == block1x && block3y == block1y + 1){
+    if (block3x == block1x && block3y == block1y + 1) {
       block3x = block1x + 1;
       block3y = block1y;
-    } else if (block3x == block1x + 1 && block3y == block1y){
+    } else if (block3x == block1x + 1 && block3y == block1y) {
       block3x = block1x;
       block3y = block1y - 1;
-    } else if (block3x == block1x && block3y == block1y - 1){
+    } else if (block3x == block1x && block3y == block1y - 1) {
       block3x = block1x - 1;
       block3y = block1y;
-    } else if (block3x == block1x - 1 && block3y == block1y){
+    } else if (block3x == block1x - 1 && block3y == block1y) {
       block3x = block1x;
       block3y = block1y + 1;
     }
 
-    if (block4x == block1x + 1 && block4y == block1y){
+    if (block4x == block1x + 1 && block4y == block1y) {
       block4x = block1x;
       block4y = block1y - 1;
-    } else if (block4x == block1x && block4y == block1y - 1){
+    } else if (block4x == block1x && block4y == block1y - 1) {
       block4x = block1x - 1;
       block4y = block1y;
-    } else if (block4x == block1x - 1 && block4y == block1y){
+    } else if (block4x == block1x - 1 && block4y == block1y) {
       block4x = block1x;
       block4y = block1y + 1;
-    } else if (block4x == block1x && block4y == block1y + 1){
+    } else if (block4x == block1x && block4y == block1y + 1) {
       block4x = block1x + 1;
       block4y = block1y;
     }
@@ -505,13 +504,13 @@ void FallingBlocks::rotate() {
   }
 }
 
-void FallingBlocks::drop(){
+void FallingBlocks::drop() {
   block1y--;
   block2y--;
   block3y--;
   block4y--;
 
-  if (type == "I"){
+  if (type == "I") {
     i_rotatey--;
   }
 }
@@ -522,16 +521,12 @@ public:
   DroppedBlocks();
   DroppedBlocks(string color);
 
-private:  
+private:
   string color;
 };
 
-DroppedBlocks::DroppedBlocks (){
-  
-}
+DroppedBlocks::DroppedBlocks() {}
 
-DroppedBlocks::DroppedBlocks (string color){
-  this->color = color;
-}
+DroppedBlocks::DroppedBlocks(string color) { this->color = color; }
 
 } // namespace Blocks
