@@ -11,6 +11,21 @@ public:
   void rotate();
   void drop();
 
+  string get_type() const;
+  string get_color() const;
+
+  int get_i_rotatex() const;
+  int get_i_rotatey() const;
+
+  int get_block1x() const;
+  int get_block1y() const;
+  int get_block2x() const;
+  int get_block2y() const;
+  int get_block3x() const;
+  int get_block3y() const;
+  int get_block4x() const;
+  int get_block4y() const;
+
 private:
   string type; // "Q" (square), "LL" (blue one), "LR" (orange one), "I", "S",
                // "Z", "T"
@@ -513,6 +528,54 @@ void FallingBlocks::drop() {
   if (type == "I") {
     i_rotatey--;
   }
+}
+
+string FallingBlocks::get_type() const{
+  return this->type;
+}
+
+string FallingBlocks::get_color() const{
+  return this->color;
+}
+
+int FallingBlocks::get_i_rotatex() const{
+  return this->i_rotatex;
+}
+
+int FallingBlocks::get_i_rotatey() const{
+  return this->i_rotatey;
+}
+
+int FallingBlocks::get_block1x() const{
+  return this->block1x;
+}
+
+int FallingBlocks::get_block1y() const{
+  return this->block1y;
+}
+
+int FallingBlocks::get_block2x() const{
+  return this->block2x;
+}
+
+int FallingBlocks::get_block2y() const{
+  return this->block2y;
+}
+
+int FallingBlocks::get_block3x() const{
+  return this->block3x;
+}
+
+int FallingBlocks::get_block3y() const{
+  return this->block3y;
+}
+
+int FallingBlocks::get_block4x() const{
+  return this->block4x;
+}
+
+int FallingBlocks::get_block4y() const{
+  return this->block4y;
 }
 
 class DroppedBlocks {
