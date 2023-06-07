@@ -1,6 +1,7 @@
 #include <array>
 #include <ctime>
 
+#include "input.h"
 #include "graphics.h"
 #include "blocks.h"
 
@@ -22,9 +23,10 @@ int main() {
   set_screen();
 
   while (true) {
+    char input = get_input();
     clear_screen();
-    print_header(0);
-
+    print_header(points);
+    
   }
 
   return 0;
