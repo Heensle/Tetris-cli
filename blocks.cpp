@@ -525,8 +525,11 @@ private:
   string color;
 };
 
-DroppedBlocks::DroppedBlocks() {}
+DroppedBlocks::DroppedBlocks() {
+  color = "empty";
+}
 
-DroppedBlocks::DroppedBlocks(string color) { this->color = color; }
+DroppedBlocks::DroppedBlocks(string color) { this->color = color; 
+                                           }
 
 } // namespace Blocks
