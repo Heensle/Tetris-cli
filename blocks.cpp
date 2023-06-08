@@ -1,161 +1,30 @@
 #include <iostream>
+#include <string>
+
+#include "blocks.h"
 using std::string;
 
 namespace Blocks {
 
-class FallingBlocks {
 
-public:
-  FallingBlocks(string type);
-
-  void rotate();
-  void drop();
-
-  string get_type() const;
-  string get_color() const;
-
-  int get_i_rotatex() const;
-  int get_i_rotatey() const;
-
-  int get_block1x() const;
-  int get_block1y() const;
-  int get_block2x() const;
-  int get_block2y() const;
-  int get_block3x() const;
-  int get_block3y() const;
-  int get_block4x() const;
-  int get_block4y() const;
-
-private:
-  string type; // "Q" (square), "LL" (blue one), "LR" (orange one), "I", "S",
-               // "Z", "T"
-  string color;
-
-  int i_rotatex;
-  int i_rotatey; // only used for the I tetromino: because of the way I've
-                 // rendered the rotation, I need an arbitrary rotation point
-                 // for the I tetromino specifically :/ (it is the in the
-                 // position of the third block in the starting position)
-
-  int block1x;
-  int block1y;
-  /* Point of rotation
-  □
-  ■ □
-  □
-
-  □ □
-    ■ □
-
-    □ □
-  □ ■
-
-      □
-  □ ■ □
-
-  □
-  □ ■ □
-
-  {
-  I Tetromino's point of rotation is not a block: block 1 is:
-
-  ■
-  □
-  □
-  □
-  }
-  */
-  int block2x;
-  int block2y;
-  /*
-  ■
-  □ □
-  □
-
-  ■ □
-    □ □
-
-    □ ■
-  □ □
-
-      ■
-  □ □ □
-
-  ■
-  □ □ □
-
-  □
-  ■
-  □
-  □
-  */
-  int block3x;
-  int block3y;
-  /*
-  □
-  □ ■
-  □
-
-  □ ■
-    □ □
-
-    ■ □
-  □ □
-
-      □
-  □ □ ■
-
-  □
-  ■ □ □
-
-  □
-  □
-  ■
-  □
-  */
-  int block4x;
-  int block4y;
-  /*
-  □
-  □ □
-  ■
-
-  □ □
-    □ ■
-
-    □ □
-  ■ □
-
-      □
-  ■ □ □
-
-  □
-  □ □ ■
-
-  □
-  □
-  □
-  ■
-  */
-};
 
 FallingBlocks::FallingBlocks(string type) {
   this->type = type;
   // initializes starting positions
   if (type == "Q") {
-    color = "\u001b[38;5;226m";
+    this->color = "\u001b[38;5;226m";
 
-    block1x = 4;
-    block1y = 19;
+    this->block1x = 4;
+    this->block1y = 19;
 
-    block2x = 5;
-    block2y = 19;
+    this->block2x = 5;
+    this->block2y = 19;
 
-    block3x = 4;
-    block3y = 18;
+    this->block3x = 4;
+    this->block3y = 18;
 
-    block4x = 5;
-    block4y = 18;
+    this->block4x = 5;
+    this->block4y = 18;
   } else if (type == "LL") {
     color = "\u001b[38;5;69m";
 

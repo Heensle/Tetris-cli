@@ -5,7 +5,6 @@
 #include "blocks.h"
 
 using std::cout;
-using std::endl;
 
 using namespace Blocks;
 

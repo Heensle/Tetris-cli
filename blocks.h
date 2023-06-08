@@ -19,16 +19,112 @@ public:
 
   int get_block1x() const;
   int get_block1y() const;
+  /* Point of rotation
+  □
+  ■ □
+  □
+
+  □ □
+    ■ □
+
+    □ □
+  □ ■
+
+      □
+  □ ■ □
+
+  □
+  □ ■ □
+
+  {
+  I Tetromino's point of rotation is not a block: block 1 is:
+
+  ■
+  □
+  □
+  □
+  }
+  */
   int get_block2x() const;
   int get_block2y() const;
+/*
+  ■
+  □ □
+  □
+
+  ■ □
+    □ □
+
+    □ ■
+  □ □
+
+      ■
+  □ □ □
+
+  ■
+  □ □ □
+
+  □
+  ■
+  □
+  □
+  */
   int get_block3x() const;
   int get_block3y() const;
+  /*
+  □
+  □ ■
+  □
+
+  □ ■
+    □ □
+
+    ■ □
+  □ □
+
+      □
+  □ □ ■
+
+  □
+  ■ □ □
+
+  □
+  □
+  ■
+  □
+  */
   int get_block4x() const;
   int get_block4y() const;
+  /*
+  □
+  □ □
+  ■
+
+  □ □
+    □ ■
+
+    □ □
+  ■ □
+
+      □
+  ■ □ □
+
+  □
+  □ □ ■
+
+  □
+  □
+  □
+  ■
+  */
 
 private:
-  string type;
-  string color;
+  string type; // "Q" (square), "LL" (blue one), "LR" (orange one), "I", "S",
+               // "Z", "T"
+  string color; // only used for the I tetromino: because of the way I've
+                 // rendered the rotation, I need an arbitrary rotation point
+                 // for the I tetromino specifically :/ (it is the in the
+                 // position of the third block in the starting position)
 
   int block1x;
   int block1y;
