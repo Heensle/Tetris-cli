@@ -94,10 +94,11 @@ void clear_screen() { cout << "\033[H\033[2J\033[3J"; }
       } else if (row > 0 && row < 16){
         cout << "      │";
       } else if (row == 0){
-        cout << "      └────────────────────┘";
+        cout << "      └────────────────────┘" << myendl;
         break;
       }
       for (int i = 0; i < 10; i++){
+        present = false;
         if (screen[row][i] != "empty"){
           for (int j = 0; j < 2; j++){
             cout << screen[row][i] << "▓";
@@ -117,6 +118,7 @@ void clear_screen() { cout << "\033[H\033[2J\033[3J"; }
           cout << "  ";
         }
       }
+      
       if (row == 19){
         
         cout << "├─────┐" << myendl;
