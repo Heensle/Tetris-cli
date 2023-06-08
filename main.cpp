@@ -33,7 +33,7 @@ int main() {
   set_screen();
 
   int start_piece = rand_num();
-  int held_piece;
+  int held_piece = 2;
   FallingBlocks piece = FallingBlocks("Q");
   
   if (start_piece == 1){
@@ -52,7 +52,7 @@ int main() {
     piece = FallingBlocks("I");
   }
 
-  int next_piece = 5;
+  int next_piece = 4;
 
   while (true) {
     char input = get_input();
