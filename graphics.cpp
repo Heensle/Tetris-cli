@@ -123,37 +123,37 @@ void clear_screen() { cout << "\033[H\033[2J\033[3J"; }
         
         cout << "├─────┐" << myendl;
       } else if (row == 18){
-        if (held_piece == 1){
+        if (next_piece == 1){
           cout << "│  " << "\u001b[38;5;226m" << "▓▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 2){
+        } else if (next_piece == 2){
           cout << "│  " << "\u001b[38;5;128m" << "▓" << "\u001b[0m" << "  │" << myendl;
-        } else if (held_piece == 3){
+        } else if (next_piece == 3){
           cout << "│ " << "\u001b[38;5;69m" << "▓" << "\u001b[0m" << "   │" << myendl;
-        } else if (held_piece == 4){
+        } else if (next_piece == 4){
           cout << "│   " << "\u001b[38;5;214m" << "▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 5){
+        } else if (next_piece == 5){
           cout << "│  " << "\u001b[38;5;82m" << "▓▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 6){
+        } else if (next_piece == 6){
           cout << "│ " << "\u001b[38;5;196m" << "▓▓" << "\u001b[0m" << "  │" << myendl;
-        } else if (held_piece == 7){
+        } else if (next_piece == 7){
           cout << "│     │" << myendl;
         } else {
           cout << "│     │" << myendl;
         }
       } else if (row == 17){
-        if (held_piece == 1){
+        if (next_piece == 1){
           cout << "│  " << "\u001b[38;5;226m" << "▓▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 2){
+        } else if (next_piece == 2){
           cout << "│ " << "\u001b[38;5;128m" << "▓▓▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 3){
+        } else if (next_piece == 3){
           cout << "│ " << "\u001b[38;5;69m" << "▓▓▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 4){
+        } else if (next_piece == 4){
           cout << "│ " << "\u001b[38;5;214m" << "▓▓▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 5){
+        } else if (next_piece == 5){
           cout << "│ " << "\u001b[38;5;82m" << "▓▓" << "\u001b[0m" << "  │" << myendl;
-        } else if (held_piece == 6){
+        } else if (next_piece == 6){
           cout << "│  " << "\u001b[38;5;196m" << "▓▓" << "\u001b[0m" << " │" << myendl;
-        } else if (held_piece == 7){
+        } else if (next_piece == 7){
           cout << "│ " << "\u001b[38;5;51m" << "▓▓▓▓" << "\u001b[0m" << "│" << myendl;
         } else {
           cout << "\u001b[0m" << "│     │" << myendl;
