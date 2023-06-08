@@ -145,104 +145,104 @@ FallingBlocks::FallingBlocks(string type) {
   if (type == "Q") {
     color = "\u001b[38;5;226m";
 
-    block1x = 5;
-    block1y = 20;
+    block1x = 4;
+    block1y = 19;
 
-    block2x = 6;
-    block2y = 20;
+    block2x = 5;
+    block2y = 19;
 
-    block3x = 5;
-    block3y = 19;
+    block3x = 4;
+    block3y = 18;
 
-    block4x = 6;
-    block4y = 19;
+    block4x = 5;
+    block4y = 18;
   } else if (type == "LL") {
     color = "\u001b[38;5;69m";
 
     block1x = 5;
-    block1y = 19;
+    block1y = 18;
 
     block2x = 4;
-    block2y = 20;
+    block2y = 19;
 
     block3x = 4;
-    block3y = 19;
+    block3y = 18;
 
     block4x = 6;
-    block4y = 19;
+    block4y = 18;
   } else if (type == "LR") {
     color = "\u001b[38;5;214m";
 
     block1x = 5;
-    block1y = 19;
+    block1y = 18;
 
     block2x = 6;
-    block2y = 20;
+    block2y = 19;
 
     block3x = 6;
-    block3y = 19;
+    block3y = 18;
 
     block4x = 4;
-    block4y = 19;
+    block4y = 18;
   } else if (type == "I") {
     color = "\u001b[38;5;51m";
 
     block1x = 4;
-    block1y = 20;
+    block1y = 19;
 
     block2x = 5;
-    block2y = 20;
+    block2y = 19;
 
     block3x = 6;
-    block3y = 20;
+    block3y = 19;
 
     block4x = 7;
-    block4y = 20;
+    block4y = 19;
 
     i_rotatex = 6;
-    i_rotatey = 20;
+    i_rotatey = 19;
   } else if (type == "S") {
     color = "\u001b[38;5;82m";
 
     block1x = 5;
-    block1y = 19;
+    block1y = 18;
 
     block2x = 6;
-    block2y = 20;
+    block2y = 19;
 
     block3x = 5;
-    block3y = 20;
+    block3y = 19;
 
     block4x = 4;
-    block4y = 19;
+    block4y = 18;
   } else if (type == "Z") {
     color = "\u001b[38;5;196m";
 
     block1x = 5;
-    block1y = 19;
-
-    block2x = 4;
-    block2y = 20;
-
-    block3x = 5;
-    block3y = 20;
-
-    block4x = 6;
-    block4y = 19;
-  } else if (type == "T") {
-    color = "\u001b[38;5;128m";
-
-    block1x = 5;
-    block1y = 19;
+    block1y = 18;
 
     block2x = 4;
     block2y = 19;
 
     block3x = 5;
-    block3y = 20;
+    block3y = 19;
 
     block4x = 6;
-    block4y = 19;
+    block4y = 18;
+  } else if (type == "T") {
+    color = "\u001b[38;5;128m";
+
+    block1x = 5;
+    block1y = 18;
+
+    block2x = 4;
+    block2y = 18;
+
+    block3x = 5;
+    block3y = 19;
+
+    block4x = 6;
+    block4y = 18;
   }
 }
 
@@ -553,23 +553,5 @@ int FallingBlocks::get_block3y() const { return this->block3y; }
 int FallingBlocks::get_block4x() const { return this->block4x; }
 
 int FallingBlocks::get_block4y() const { return this->block4y; }
-
-class DroppedBlocks {
-
-public:
-  DroppedBlocks();
-  DroppedBlocks(string color);
-
-  string get_color() const;
-
-private:
-  string color;
-};
-
-DroppedBlocks::DroppedBlocks() { color = "empty"; }
-
-DroppedBlocks::DroppedBlocks(string color) { this->color = color; }
-
-string DroppedBlocks::get_color() const { return this->color; }
 
 } // namespace Blocks

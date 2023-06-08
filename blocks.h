@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 using namespace std;
 
@@ -42,16 +44,5 @@ private:
 
   int i_rotatex;
   int i_rotatey;
-};
-
-class DroppedBlocks {
-public:
-  DroppedBlocks();
-  DroppedBlocks(string color);
-
-  string get_color() const;
-
-private:
-  string color;
 };
 } // namespace Blocks
