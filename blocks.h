@@ -9,8 +9,11 @@ public:
   FallingBlocks(string type);
 
   void rotate();
-  void drop();
+  void move_left();
+  void move_right();
+  void drop(string (&screen)[20][10]);
 
+  int get_type_num() const;
   string get_type() const;
   string get_color() const;
 
@@ -119,6 +122,7 @@ public:
   */
 
 private:
+  int type_num;
   string type; // "Q" (square), "LL" (blue one), "LR" (orange one), "I", "S",
                // "Z", "T"
   string color; // only used for the I tetromino: because of the way I've

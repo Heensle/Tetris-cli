@@ -12,6 +12,7 @@ FallingBlocks::FallingBlocks(string type) {
   this->type = type;
   // initializes starting positions
   if (type == "Q") {
+    this->type_num = 1;
     this->color = "\u001b[38;5;226m";
 
     this->block1x = 4;
@@ -26,6 +27,7 @@ FallingBlocks::FallingBlocks(string type) {
     this->block4x = 5;
     this->block4y = 18;
   } else if (type == "LL") {
+    type_num = 3;
     color = "\u001b[38;5;69m";
 
     block1x = 5;
@@ -40,6 +42,7 @@ FallingBlocks::FallingBlocks(string type) {
     block4x = 6;
     block4y = 18;
   } else if (type == "LR") {
+    type_num = 4;
     color = "\u001b[38;5;214m";
 
     block1x = 5;
@@ -54,6 +57,7 @@ FallingBlocks::FallingBlocks(string type) {
     block4x = 4;
     block4y = 18;
   } else if (type == "I") {
+    type_num = 7;
     color = "\u001b[38;5;51m";
 
     block1x = 4;
@@ -71,6 +75,7 @@ FallingBlocks::FallingBlocks(string type) {
     i_rotatex = 6;
     i_rotatey = 19;
   } else if (type == "S") {
+    type_num = 5;
     color = "\u001b[38;5;82m";
 
     block1x = 5;
@@ -85,6 +90,7 @@ FallingBlocks::FallingBlocks(string type) {
     block4x = 4;
     block4y = 18;
   } else if (type == "Z") {
+    type_num = 6;
     color = "\u001b[38;5;196m";
 
     block1x = 5;
@@ -99,6 +105,7 @@ FallingBlocks::FallingBlocks(string type) {
     block4x = 6;
     block4y = 18;
   } else if (type == "T") {
+    type_num = 2;
     color = "\u001b[38;5;128m";
 
     block1x = 5;
@@ -190,17 +197,17 @@ void FallingBlocks::rotate() {
       block3y = block1y;
     }
 
-    if (block4x == block1x - 1 && block4y == block1y) {
+    if (block4x == block1x + 1 && block4y == block1y) {
       block4x = block1x;
       block4y = block1y - 1;
     } else if (block4x == block1x && block4y == block1y - 1) {
       block4x = block1x - 1;
       block4y = block1y;
-    } else if (block4x == block1x - 1 && block4y - block1y) {
+    } else if (block4x == block1x - 1 && block4y) {
       block4x = block1x;
       block4y = block1y + 1;
     } else if (block4x == block1x && block4y == block1y + 1) {
-      block4x = block1x - 1;
+      block4x = block1x + 1;
       block4y = block1y;
     }
   } else if (type == "LR") {
@@ -346,8 +353,8 @@ void FallingBlocks::rotate() {
 
     if (block2x == i_rotatex - 1 && block2y == i_rotatey) {
       block2x = i_rotatex;
-      block2y = i_rotatey + 1;
-    } else if (block2x == i_rotatex && block2y == i_rotatey + 1) {
+      block2y = i_rotatey;
+    } else if (block2x == i_rotatex && block2y == i_rotatey) {
       block2x = i_rotatex;
       block2y = i_rotatey - 1;
     } else if (block2x == i_rotatex && block2y == i_rotatey - 1) {
@@ -362,9 +369,9 @@ void FallingBlocks::rotate() {
       block3x = i_rotatex;
       block3y = i_rotatey - 1;
     } else if (block3x == i_rotatex && block3y == i_rotatey - 1) {
-      block3x = i_rotatex - 2;
+      block3x = i_rotatex - 1;
       block3y = i_rotatey - 1;
-    } else if (block3x == i_rotatex - 2 && block3y == i_rotatey - 1) {
+    } else if (block3x == i_rotatex - 1 && block3y == i_rotatey - 1) {
       block3x = i_rotatex - 2;
       block3y = i_rotatey;
     } else if (block3x == i_rotatex - 2 && block3y == i_rotatey) {
@@ -388,16 +395,34 @@ void FallingBlocks::rotate() {
   }
 }
 
-void FallingBlocks::drop() {
-  block1y--;
-  block2y--;
-  block3y--;
-  block4y--;
+void FallingBlocks::move_left(){
+  block1x--;
+  block2x--;
+  block3x--;
+  block4x--;
+}
 
-  if (type == "I") {
-    i_rotatey--;
+void FallingBlocks::move_right(){
+  block1x++;
+  block2x++;
+  block3x++;
+  block4x++;
+}
+
+void FallingBlocks::drop(string (&screen)[20][10]) {
+  if (!(block1y - 1 < 0 || block2y - 1 < 0 || block3y < 0 || block4y < 0) && (screen[block1y - 1][block1x] == "empty" && screen[block2y - 1][block2x] == "empty" && screen[block3y - 1][block3x] == "empty" && screen[block4y - 1][block4x] == "empty")){
+    block1y--;
+    block2y--;
+    block3y--;
+    block4y--;
+  
+    if (type == "I") {
+      i_rotatey--;
+    }
   }
 }
+
+int FallingBlocks::get_type_num() const { return this->type_num; }
 
 string FallingBlocks::get_type() const { return this->type; }
 

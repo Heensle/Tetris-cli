@@ -10,16 +10,18 @@ using namespace Blocks;
 
 namespace Graphics{
   void set_screen() {
+    initscr();
     keypad(stdscr, TRUE);
     cbreak();
     noecho();
+    nodelay(stdscr, TRUE);
   }
   
 void clear_screen() { cout << "\033[H\033[2J\033[3J"; }
   
   void print_header(int points) {
     char myendl = 10;
-    cout << "              ┌────┐              " << myendl << "              │";
+    cout << "\u001b[1000D" << "              ┌────┐              " << myendl << "\u001b[1000D" << "              │";
     if (points < 10) {
       cout << "  " << points << " ";
     } else if (points < 100) {
@@ -41,7 +43,7 @@ void clear_screen() { cout << "\033[H\033[2J\033[3J"; }
     }
   
     cout << "│              " << myendl;
-    cout << " HOLD ┌───────┴────┴───────┐ NEXT " << myendl;
+    cout << "\u001b[1000D" << " HOLD ┌───────┴────┴───────┐ NEXT " << myendl;
   }
   
   void print_board(string (&screen)[20][10], FallingBlocks piece, int held_piece, int next_piece){
@@ -51,57 +53,55 @@ void clear_screen() { cout << "\033[H\033[2J\033[3J"; }
     while (true){
       bool present = false;
       if (row == 19){
-        cout << "┌─────┤"; 
+        cout << "\u001b[1000D" << "┌─────┤"; 
       } else if (row == 18){
         if (held_piece == 1){
-          cout << "│  " << "\u001b[38;5;226m" << "▓▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│  " << "\u001b[38;5;226m" << "▓▓" << "\u001b[0m" << " │";
         } else if (held_piece == 2){
-          cout << "│  " << "\u001b[38;5;128m" << "▓" << "\u001b[0m" << "  │";
+          cout << "\u001b[1000D" << "│  " << "\u001b[38;5;128m" << "▓" << "\u001b[0m" << "  │";
         } else if (held_piece == 3){
-          cout << "│ " << "\u001b[38;5;69m" << "▓" << "\u001b[0m" << "   │";
+          cout << "\u001b[1000D" << "│ " << "\u001b[38;5;69m" << "▓" << "\u001b[0m" << "   │";
         } else if (held_piece == 4){
-          cout << "│   " << "\u001b[38;5;214m" << "▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│   " << "\u001b[38;5;214m" << "▓" << "\u001b[0m" << " │";
         } else if (held_piece == 5){
-          cout << "│  " << "\u001b[38;5;82m" << "▓▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│  " << "\u001b[38;5;82m" << "▓▓" << "\u001b[0m" << " │";
         } else if (held_piece == 6){
-          cout << "│ " << "\u001b[38;5;196m" << "▓▓" << "\u001b[0m" << "  │";
+          cout << "\u001b[1000D" << "│ " << "\u001b[38;5;196m" << "▓▓" << "\u001b[0m" << "  │";
         } else if (held_piece == 7){
-          cout << "│     │";
+          cout << "\u001b[1000D" << "│     │";
         } else {
-          cout << "│     │";
+          cout << "\u001b[1000D" << "│     │";
         }
       } else if (row == 17){
         if (held_piece == 1){
-          cout << "│  " << "\u001b[38;5;226m" << "▓▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│  " << "\u001b[38;5;226m" << "▓▓" << "\u001b[0m" << " │";
         } else if (held_piece == 2){
-          cout << "│ " << "\u001b[38;5;128m" << "▓▓▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│ " << "\u001b[38;5;128m" << "▓▓▓" << "\u001b[0m" << " │";
         } else if (held_piece == 3){
-          cout << "│ " << "\u001b[38;5;69m" << "▓▓▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│ " << "\u001b[38;5;69m" << "▓▓▓" << "\u001b[0m" << " │";
         } else if (held_piece == 4){
-          cout << "│ " << "\u001b[38;5;214m" << "▓▓▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│ " << "\u001b[38;5;214m" << "▓▓▓" << "\u001b[0m" << " │";
         } else if (held_piece == 5){
-          cout << "│ " << "\u001b[38;5;82m" << "▓▓" << "\u001b[0m" << "  │";
+          cout << "\u001b[1000D" << "│ " << "\u001b[38;5;82m" << "▓▓" << "\u001b[0m" << "  │";
         } else if (held_piece == 6){
-          cout << "│  " << "\u001b[38;5;196m" << "▓▓" << "\u001b[0m" << " │";
+          cout << "\u001b[1000D" << "│  " << "\u001b[38;5;196m" << "▓▓" << "\u001b[0m" << " │";
         } else if (held_piece == 7){
-          cout << "│ " << "\u001b[38;5;51m" << "▓▓▓▓" << "\u001b[0m" << "│";
+          cout << "\u001b[1000D" << "│ " << "\u001b[38;5;51m" << "▓▓▓▓" << "\u001b[0m" << "│";
         } else {
-          cout << "\u001b[0m" << "│     │";
+          cout << "\u001b[1000D" << "\u001b[0m" << "│     │";
         }
       } else if (row == 16){
-        cout << "└─────┤";
+        cout << "\u001b[1000D" << "└─────┤";
       } else if (row > 0 && row < 16){
-        cout << "      │";
+        cout << "\u001b[1000D" << "      │";
       } else if (row == 0){
-        cout << "      └────────────────────┘" << myendl;
+        cout << "\u001b[1000D" << "      └────────────────────┘" << myendl << "\u001b[1000D";
         break;
       }
       for (int i = 0; i < 10; i++){
         present = false;
         if (screen[row][i] != "empty"){
-          for (int j = 0; j < 2; j++){
-            cout << screen[row][i] << "▓";
-          }
+          cout << screen[row][i] << "▓▓";
           cout << "\u001b[0m";
           present = true;
         }

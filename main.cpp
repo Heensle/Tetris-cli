@@ -3,14 +3,15 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <ncurses.h>
 
-#include "input.h"
 #include "graphics.h"
 #include "blocks.h"
 #include "miscellaneous_functions.h"
 
 using namespace Blocks;
 using namespace Graphics;
+using std::getline;
 
 int rand_num(){
   return rand() % 7 + 1;
@@ -30,14 +31,14 @@ int main() {
 
   
   int points = 0;
-  int speed = 9;
+  int speed = 1;
   bool newPiece = false;
   int frame = 0;
 
   set_screen();
 
   int start_piece = rand_num();
-  int held_piece;
+  int held_piece = 0;
   int next_piece = rand_num();
   FallingBlocks piece = FallingBlocks("Q");
   
@@ -59,8 +60,7 @@ int main() {
 
   
   while (true) {
-    if(newPiece){
-      
+    if (newPiece){
       if (next_piece == 1){
         piece = FallingBlocks("Q");
       } else if (next_piece == 2){
@@ -76,19 +76,87 @@ int main() {
       } else if (next_piece == 7){
         piece = FallingBlocks("I");
       }
+      if (check_loss(screen, piece)){
+        cout << "             YOU LOSE" << endl;
+        return 0;
+      }
       next_piece = rand_num();
       newPiece = false;
     }
-    char input = get_input();
+    int input;
+    while (true){
+      input = getch();
+      if (input == 'r' || input == 'R'){
+        piece.rotate();
+      } else if (input == 'a' || input == 'A' || input == KEY_LEFT){
+        piece.move_left();
+      } else if (input == 'd' || input == 'D' || input == KEY_RIGHT){
+        piece.move_right();
+      } else if (input == 's' || input == 'S' || input == KEY_DOWN){
+        piece.drop(screen);
+        points += 2;
+      } else if (input == 'h' || input == 'H'){
+        if (held_piece == 0){
+          held_piece = piece.get_type_num();
+          if (next_piece == 1){
+          piece = FallingBlocks("Q");
+          } else if (next_piece == 2){
+          piece = FallingBlocks("T");
+          } else if (next_piece == 3){
+          piece = FallingBlocks("LL");
+          } else if (next_piece == 4){
+          piece = FallingBlocks("LR");
+          } else if (next_piece == 5){
+          piece = FallingBlocks("S");
+          } else if (next_piece == 6){
+          piece = FallingBlocks("Z");
+          } else if (next_piece == 7){
+          piece = FallingBlocks("I");
+          }
+          next_piece = rand_num();
+        } else {
+          int temp = piece.get_type_num();
+          if (held_piece == 1){
+          piece = FallingBlocks("Q");
+          } else if (held_piece == 2){
+          piece = FallingBlocks("T");
+          } else if (held_piece == 3){
+          piece = FallingBlocks("LL");
+          } else if (held_piece == 4){
+          piece = FallingBlocks("LR");
+          } else if (held_piece == 5){
+          piece = FallingBlocks("S");
+          } else if (held_piece == 6){
+          piece = FallingBlocks("Z");
+          } else if (held_piece == 7){
+          piece = FallingBlocks("I");
+          }
+          held_piece = temp;
+        }
+      } else if (input == 'p' || input == 'P') {
+        clear_screen();
+        cout << "       Press ENTER to continue.";
+        string con;
+        nodelay(stdscr, FALSE);
+        nocbreak();
+        getline(cin, con);
+        nodelay(stdscr, TRUE);
+        cbreak();
+      } else if (input == '?'){
+        
+      } else {
+        break;
+      }
+    }
     clear_screen();
     print_header(points);
     print_board(screen, piece, held_piece, next_piece);
     std::flush(std::cout);
-    std::this_thread::sleep_for(62ms);
+    std::this_thread::sleep_for(250ms);
     if (frame < speed){
       frame++;
     } else {
-      piece.drop();
+      piece.drop(screen);
       block_fall(screen, piece, newPiece);
       frame = 0;
     }
