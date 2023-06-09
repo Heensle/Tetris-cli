@@ -46,18 +46,24 @@ bool check_loss(string (&screen)[20][10], FallingBlocks &piece){
 }
 
 void clear_line(string (&screen)[20][10], int &points){
-  for (int i = 0; i < 10; i++){
+  for (int j = 0; j < 20; j++){
     int full = 0;
-    for (int j = 0; j < 20; j++){
+    for (int i = 0; i < 10; i++){
       if (screen[j][i] != "empty"){
         full++;
       }
-      if (full == 20){
-        for (int h = 0; h < 10; h++){
-          screen[j][h] = "empty";
+    }
+    if (full == 10){
+      points += 100;
+      for (int h = j; h < 19; h++){
+        for (int k = 0; k < 10; k++){
+          screen[h][k] = screen[h + 1][k];
         }
-        
+      }
+      for (int k = 0; k < 10; k++){
+        screen[19][k] = "empty";
       }
     }
+    
   }
 }

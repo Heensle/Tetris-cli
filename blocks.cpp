@@ -396,21 +396,26 @@ void FallingBlocks::rotate() {
 }
 
 void FallingBlocks::move_left(){
-  block1x--;
-  block2x--;
-  block3x--;
-  block4x--;
+  if (block1x - 1 >= 0 && block2x - 1 >= 0 && block3x - 1 >= 0 && block4x - 1 >= 0){
+    block1x--;
+    block2x--;
+    block3x--;
+    block4x--;
+  }
 }
 
 void FallingBlocks::move_right(){
-  block1x++;
-  block2x++;
-  block3x++;
-  block4x++;
+  if (block1x + 1 < 10 && block2x + 1 < 10 && block3x + 1 < 10 && block4x + 1 < 10){
+    block1x++;
+    block2x++;
+    block3x++;
+    block4x++;
+  }
 }
 
 void FallingBlocks::drop(string (&screen)[20][10]) {
-  if (!(block1y - 1 < 0 || block2y - 1 < 0 || block3y < 0 || block4y < 0) && (screen[block1y - 1][block1x] == "empty" && screen[block2y - 1][block2x] == "empty" && screen[block3y - 1][block3x] == "empty" && screen[block4y - 1][block4x] == "empty")){
+  if (block1y - 1 >= 0 && block2y - 1 >= 0 && block3y - 1 >= 0 && block4y - 1 >= 0 && (screen[block1y - 1][block1x] == "empty" && screen[block2y - 1][block2x] == "empty" && screen[block3y - 1][block3x] == "empty" && screen[block4y - 1][block4x] == "empty")){
+    
     block1y--;
     block2y--;
     block3y--;

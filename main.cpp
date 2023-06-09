@@ -31,7 +31,7 @@ int main() {
 
   
   int points = 0;
-  int speed = 1;
+  int speed = 4;
   bool newPiece = false;
   int frame = 0;
 
@@ -58,9 +58,20 @@ int main() {
     piece = FallingBlocks("I");
   }
 
+  bool held = false;
   
   while (true) {
+    if (points > 1000){
+      speed = 3;
+    }
+    if (points > 5000){
+      speed = 2;
+    }
+    if (points > 10000){
+      speed = 1;
+    }
     if (newPiece){
+      held = false;
       if (next_piece == 1){
         piece = FallingBlocks("Q");
       } else if (next_piece == 2){
@@ -95,7 +106,8 @@ int main() {
       } else if (input == 's' || input == 'S' || input == KEY_DOWN){
         piece.drop(screen);
         points += 2;
-      } else if (input == 'h' || input == 'H'){
+      } else if ((input == 'h' || input == 'H') && !held){
+        held = true;
         if (held_piece == 0){
           held_piece = piece.get_type_num();
           if (next_piece == 1){
@@ -157,6 +169,7 @@ int main() {
       frame++;
     } else {
       piece.drop(screen);
+      clear_line(screen, points);
       block_fall(screen, piece, newPiece);
       frame = 0;
     }
