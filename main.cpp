@@ -61,13 +61,13 @@ int main() {
   bool held = false;
   
   while (true) {
-    if (points > 1000){
+    if (points > 500){
       speed = 3;
     }
-    if (points > 5000){
+    if (points > 1000){
       speed = 2;
     }
-    if (points > 10000){
+    if (points > 2000){
       speed = 1;
     }
     if (newPiece){
@@ -100,9 +100,9 @@ int main() {
       if (input == 'r' || input == 'R'){
         piece.rotate();
       } else if (input == 'a' || input == 'A' || input == KEY_LEFT){
-        piece.move_left();
+        piece.move_left(screen);
       } else if (input == 'd' || input == 'D' || input == KEY_RIGHT){
-        piece.move_right();
+        piece.move_right(screen);
       } else if (input == 's' || input == 'S' || input == KEY_DOWN){
         piece.drop(screen);
         points += 2;
@@ -155,11 +155,13 @@ int main() {
         nodelay(stdscr, TRUE);
         cbreak();
       } else if (input == '?'){
-        
+        question();
       } else {
         break;
       }
     }
+    clear_line(screen, points);
+    
     clear_screen();
     print_header(points);
     print_board(screen, piece, held_piece, next_piece);
@@ -168,8 +170,8 @@ int main() {
     if (frame < speed){
       frame++;
     } else {
-      piece.drop(screen);
       clear_line(screen, points);
+      piece.drop(screen);
       block_fall(screen, piece, newPiece);
       frame = 0;
     }

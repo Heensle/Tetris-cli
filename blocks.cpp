@@ -6,8 +6,6 @@ using std::string;
 
 namespace Blocks {
 
-
-
 FallingBlocks::FallingBlocks(string type) {
   this->type = type;
   // initializes starting positions
@@ -395,21 +393,29 @@ void FallingBlocks::rotate() {
   }
 }
 
-void FallingBlocks::move_left(){
-  if (block1x - 1 >= 0 && block2x - 1 >= 0 && block3x - 1 >= 0 && block4x - 1 >= 0){
+void FallingBlocks::move_left(string (&screen)[20][10]){
+  if (block1x - 1 >= 0 && block2x - 1 >= 0 && block3x - 1 >= 0 && block4x - 1 >= 0 && screen[block1y][block1x - 1] == "empty" && screen[block2y][block2x - 1] == "empty" && screen[block3y][block3x - 1] == "empty" && screen[block4y][block4x - 1] == "empty"){
     block1x--;
     block2x--;
     block3x--;
     block4x--;
+
+    if (type == "I"){
+      i_rotatex--;
+    }
   }
 }
 
-void FallingBlocks::move_right(){
-  if (block1x + 1 < 10 && block2x + 1 < 10 && block3x + 1 < 10 && block4x + 1 < 10){
+void FallingBlocks::move_right(string (&screen)[20][10]){
+  if (block1x + 1 < 10 && block2x + 1 < 10 && block3x + 1 < 10 && block4x + 1 < 10 && screen[block1y][block1x - 1] == "empty" && screen[block2y][block2x - 1] == "empty" && screen[block3y][block3x - 1] == "empty" && screen[block4y][block4x - 1] == "empty"){
     block1x++;
     block2x++;
     block3x++;
     block4x++;
+
+    if(type == "I"){
+      i_rotatex++;
+    }
   }
 }
 

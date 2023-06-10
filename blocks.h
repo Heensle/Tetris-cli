@@ -9,8 +9,8 @@ public:
   FallingBlocks(string type);
 
   void rotate();
-  void move_left();
-  void move_right();
+  void move_left(string (&screen)[20][10]);
+  void move_right(string (&screen)[20][10]);
   void drop(string (&screen)[20][10]);
 
   int get_type_num() const;

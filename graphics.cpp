@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ncurses.h>
+#include <iomanip>
 
 #include "graphics.h"
 #include "blocks.h"
@@ -29,9 +30,9 @@ void clear_screen() { cout << "\033[H\033[2J\033[3J"; }
     } else if (points < 1000) {
       cout << " " << points;
     } else if (points < 10000) {
-      cout << " " << points / 1000 << "k ";
+      cout << "" << fixed << setprecision(1) << points / 1000.0 << "k";
     } else if (points < 100000) {
-      cout << " " << points / 1000 << "k";
+      cout << "" << points / 1000 << "k";
     } else if (points < 1000000) {
       cout << points / 1000 << "k";
     } else if (points < 10000000) {
