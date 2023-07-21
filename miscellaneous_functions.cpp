@@ -108,7 +108,7 @@ void question(){
       cbreak();
     } else if (input == '2'){
       clear_screen();
-      cout << "\u001b[1000D" << "PROGRAM CONTROLS" << endl << endl << endl << "\u001b[1000D" << "     HOLD PIECE = 'p'" << endl << "\u001b[1000D" << "     ROTATE PIECE = 'r'" << endl << "\u001b[1000D" << "     MOVE LEFT = 'a' or left arrow" << endl << "\u001b[1000D" << "     MOVE RIGHT = 'd' or right arrow" << endl << "\u001b[1000D" << "     MOVE DOWN = 's' or down arrow" << endl << "\u001b[1000D" << "     PAUSE = 'p'" << endl << "\u001b[1000D" << "     HELP = '?'" << endl << endl << "\u001b[1000D" << "     Press ENTER to continue." << endl << "\u001b[1000D";
+      cout << "\u001b[1000D" << "PROGRAM CONTROLS" << endl << endl << endl << "\u001b[1000D" << "     HOLD PIECE = 'h'" << endl << "\u001b[1000D" << "     ROTATE PIECE = 'r'" << endl << "\u001b[1000D" << "     MOVE LEFT = 'a' or left arrow" << endl << "\u001b[1000D" << "     MOVE RIGHT = 'd' or right arrow" << endl << "\u001b[1000D" << "     MOVE DOWN = 's' or down arrow" << endl << "\u001b[1000D" << "     PAUSE = 'p'" << endl << "\u001b[1000D" << "     HELP = '?'" << endl << endl << "\u001b[1000D" << "     Press ENTER to continue." << endl << "\u001b[1000D";
       string con;
       nodelay(stdscr, FALSE);
       nocbreak();
