@@ -117,7 +117,7 @@ void question(){
       cbreak();
      } else if (input == '3'){
       clear_screen();
-      cout << "\u001b[1000D" << "PROGRAM BUGS TO BE AWARE OF" << endl << endl << endl << "\u001b[1000D" << "     Ongoing list--" << endl << endl << "\u001b[1000D" << "     1: There are no boundaries on the rotation of blocks. This means they can rotate into other blocks, out of the board, etc. This also causes a segmentation error if the player rotates the I teromino above the board and attempts to move left or right." << endl;
+      cout << "\u001b[1000D" << "PROGRAM BUGS TO BE AWARE OF" << endl << endl << endl << "\u001b[1000D" << "     Ongoing list--" << endl << endl << "\u001b[1000D" << "     1: There are no boundaries on the rotation of blocks. This means they can rotate into other blocks, out of the board, etc. This also causes a segmentation error if the player rotates the I teromino above the board and attempts to move left or right." << endl << "\u001b[1000D" << "     2: Blocks can move sideways into other blocks. This will not break the game, but can cheat gameplay. I thought I fixed this--apparantly, I didn't." << endl;
       cout << "\u001b[1000D" << "     Press ENTER to continue." << endl << "\u001b[1000D";
       string con;
       nodelay(stdscr, FALSE);
